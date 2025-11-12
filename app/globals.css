@@ -1,8 +1,8 @@
-/* app/globals.css */
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
   @apply bg-gradient-to-br from-primary to-secondary text-gray-900;
-}
+} */
+@import "tailwindcss";
