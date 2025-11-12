@@ -1,9 +1,4 @@
-// 
 
-
-
-
-// app/register/page.tsx
 "use client";
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -48,7 +43,7 @@ export default function RegisterPage() {
 
       <input
         type="password"
-        placeholder="Password (min 6 chars)"
+        placeholder="Password"
         className="p-4 rounded-xl border border-gray-300 focus:border-pink-400 focus:ring-2 focus:ring-pink-300 focus:outline-none text-gray-900 placeholder-gray-500 text-lg"
         value={password}
         onChange={(e) => setPassword(e.target.value)}

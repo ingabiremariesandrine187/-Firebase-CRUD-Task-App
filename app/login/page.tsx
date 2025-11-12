@@ -1,4 +1,3 @@
-// app/login/page.tsx
 "use client";
 
 import { useState } from "react";
@@ -15,12 +14,25 @@ export default function LoginPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert("Login successful!");
-      router.push("/"); // redirects to dashboard
+      // Attempt to sign in with Firebase
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+      if (userCredential.user) {
+        // Login successful → go to dashboard
+        alert("Login successful!");
+        router.push("/"); 
+      }
     } catch (error: any) {
-      alert(error.message);
+      // Handle errors
+      if (error.code === "auth/user-not-found") {
+        alert("No user found with this email. Please register first.");
+      } else if (error.code === "auth/wrong-password") {
+        alert("Incorrect password. Please try again.");
+      } else {
+        alert(error.message);
+      }
     } finally {
       setLoading(false);
     }
@@ -35,7 +47,6 @@ export default function LoginPage() {
         <p className="text-gray-700 mb-6 text-center">
           Log in with your email & password
         </p>
-
         <form onSubmit={handleLogin} className="flex flex-col gap-5">
           <input
             type="email"
@@ -45,7 +56,6 @@ export default function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-
           <input
             type="password"
             placeholder="Password"
@@ -54,7 +64,6 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-
           <button
             type="submit"
             disabled={loading}
@@ -62,13 +71,12 @@ export default function LoginPage() {
           >
             {loading ? "Logging in..." : "Login"}
           </button>
-
           <p className="text-center text-gray-700 mt-4 text-sm">
             Don’t have an account?{" "}
             <button
               type="button"
               onClick={() => router.push("/register")}
-              className="text-pink-500 underline font-medium"
+              className="text-violet underline font-medium"
             >
               Register
             </button>

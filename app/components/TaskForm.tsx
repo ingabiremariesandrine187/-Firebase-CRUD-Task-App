@@ -51,7 +51,7 @@ export default function TaskForm({ userEmail }: { userEmail: string }) {
       </select>
       <button
         type="submit"
-        className="bg-gradient-to-r from-purple-600 to-pink-500 text-white py-3 rounded-xl font-bold hover:opacity-90 transition duration-200"
+        className="bg-violet-800 text-white py-3 rounded-xl font-bold hover:opacity-90 transition duration-200"
       >
         Add Task
       </button>
