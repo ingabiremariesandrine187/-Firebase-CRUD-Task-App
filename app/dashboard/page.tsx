@@ -1,13 +1,12 @@
 "use client";
-import {useEffect,useState} from "react";
-import {auth,db} from "../firebase";
-import {onAuthStateChanged,signOut} from "firebase/auth";
-import {useRouter} from "next/navigation";
-import {Task} from "../types";
-import TaskForm from  "../components/TaskForm";
+import { useEffect, useState } from "react";
+import { auth, db } from "../firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { useRouter } from "next/navigation";
+import { Task } from "../types";
+import TaskForm from "../components/TaskForm";
 import TaskList from "../components/TaskList";
-import {collection,query,where,onSnapshot} from "firebase/firestore";
-
+import { collection, query, where, onSnapshot } from "firebase/firestore";
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -21,7 +20,7 @@ export default function DashboardPage() {
         setUserEmail(user.email ?? "");
         const q = query(collection(db, "tasks"), where("userEmail", "==", user.email));
         onSnapshot(q, (snapshot) => {
-          setTasks(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Task)));
+          setTasks(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as Task)));
         });
       }
     });
@@ -34,18 +33,25 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="w-full max-w-3xl bg-white/30 backdrop-blur-md rounded-2xl p-6 shadow-xl text-white">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold">Hello, {userEmail}</h2>
-        <button
-          onClick={handleLogout}
-          className="text-sm bg-gradient-to-r from-secondary to-primary px-3 py-1 rounded-md"
-        >
-          Logout
-        </button>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-white p-6 text-black">
+      <div className="w-full max-w-3xl bg-white border border-black rounded-3xl shadow-lg p-8">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-extrabold">
+            Hello, <span className="text-black">{userEmail}</span>
+          </h2>
+          <button
+            onClick={handleLogout}
+            className="text-sm font-semibold bg-gradient-to-r from-pink-500 to-purple-600 px-4 py-2 rounded-xl shadow-md text-white hover:opacity-90 transition duration-200"
+          >
+            Logout
+          </button>
+        </div>
+
+        <h3 className="text-xl font-semibold mb-4">Add a new task</h3>
+        <TaskForm userEmail={userEmail} />
+        <h3 className="text-xl font-semibold mt-10 mb-4">Your Tasks</h3>
+        <TaskList tasks={tasks} />
       </div>
-      <TaskForm userEmail={userEmail} />
-      <TaskList tasks={tasks} />
     </div>
   );
 }
