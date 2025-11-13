@@ -39,7 +39,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex items-center justify-center bg-gradient-to-br from-purple-600 via-pink-500 to-pink-400 p-6">
+    <div className="flex items-center justify-center bg-bg-violet-800 p-6">
       <div className="max-w-md w-full bg-white bg-opacity-90 backdrop-blur-md rounded-2xl shadow-2xl p-8">
         <h2 className="text-3xl font-extrabold text-gray-900 mb-2 text-center">
           Welcome Back
@@ -67,7 +67,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="py-4 rounded-xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-pink-400 text-white text-lg shadow-lg hover:opacity-95 transition duration-200"
+            className="py-4 rounded-xl font-bold bg-violet-800 text-white text-lg shadow-lg hover:opacity-95 transition duration-200"
           >
             {loading ? "Logging in..." : "Login"}
           </button>

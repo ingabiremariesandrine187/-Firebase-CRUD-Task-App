@@ -26,7 +26,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className=" flex items-center justify-center bg-gradient-to-br from-purple-600 via-pink-500 to-pink-400 p-6">
+    <div className=" flex items-center justify-center bg-violet-800 p-6">
   <div className="max-w-md w-full bg-white bg-opacity-90 backdrop-blur-md rounded-2xl shadow-2xl p-8">
     <h2 className="text-3xl font-extrabold text-gray-900 mb-2 text-center">Create Account</h2>
     <p className="text-gray-700 mb-6 text-center">Sign up with your email & password</p>
@@ -53,7 +53,7 @@ export default function RegisterPage() {
       <button
         type="submit"
         disabled={loading}
-        className="py-4 rounded-xl font-bold bg-gradient-to-r from-purple-500 via-pink-500 to-pink-400 text-white text-lg shadow-lg hover:opacity-95 transition duration-200"
+        className="py-4 rounded-xl font-bold bg-violet-800 text-white text-lg shadow-lg hover:opacity-95 transition duration-200"
       >
         {loading ? "Creating account..." : "Create Account"}
       </button>
@@ -63,7 +63,7 @@ export default function RegisterPage() {
         <button
           type="button"
           onClick={() => router.push("/login")}
-          className="text-pink-500 underline font-medium"
+          className="text-violet-800 underline font-medium"
         >
           Login
         </button>

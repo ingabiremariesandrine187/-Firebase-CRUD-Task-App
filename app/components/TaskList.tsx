@@ -52,7 +52,7 @@ export default function TaskList({ tasks }: { tasks: Task[] }) {
             </label>
             <button
               onClick={() => handleDelete(task.id)}
-              className="bg-gradient-to-r from-pink-600 to-purple-500 px-3 py-1 rounded-lg text-white text-sm shadow-md hover:opacity-90 transition"
+              className="bg-violet-800 px-3 py-1 rounded-lg text-white text-sm shadow-md hover:opacity-90 transition"
             >
               Delete
             </button>
