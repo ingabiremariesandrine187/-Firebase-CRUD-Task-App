@@ -1,37 +1,34 @@
-deployed link     https://firebase-crud-task-app-five.vercel.app/
-
-
-# 📝 Firebase CRUD Task App
+# Firebase CRUD Task App
 
 A secure Task Management App built with **Next.js (TypeScript)**, **Firebase Authentication**, and **Firestore**.  
 Users can register, log in, and manage personal tasks with full CRUD operations (Create, Read, Update, Delete).
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
- [View Deployed App on Vercel] : 
- [GitHub Repository]
+- [View Deployed App on Vercel](https://firebase-crud-task-app-five.vercel.app/)  
+- [GitHub Repository](https://github.com/ingabiremariesandrine187/-Firebase-CRUD-Task-App)
 
 ---
 
-##  Features
+## Features
 
 **Firebase Authentication**
 - User registration and login using email/password.
 - Protected routes — only logged-in users can access the dashboard.
 
- **Firestore CRUD**
+**Firestore CRUD**
 - Add, view, update, and delete tasks.
 - Each task includes title, description, priority, and completion status.
 - Tasks are stored per user (each user only sees their own tasks).
 
- **Protected Dashboard**
+**Protected Dashboard**
 - Displays the logged-in user's email.
 - Real-time Firestore updates.
 - Logout button redirects back to login.
 
- **Responsive UI**
+**Responsive UI**
 - Built with Next.js 16 + Tailwind CSS.
 - Gradient backgrounds, smooth transitions, and clean design.
 
@@ -46,5 +43,29 @@ Users can register, log in, and manage personal tasks with full CRUD operations 
 
 ---
 
-##  Project Structure
+## Project Structure
 
+firebase-todo-app/
+│
+├─ app/
+│ ├─ dashboard/page.tsx # Dashboard with task list & form
+│ ├─ login/page.tsx # Login page
+│ ├─ register/page.tsx # Registration page
+│ └─ layout.tsx # Root layout & metadata
+│
+├─ components/
+│ ├─ TaskForm.tsx # Task creation & update form
+│ └─ TaskList.tsx # Display task list with edit/delete
+│
+├─ types.ts # TypeScript interfaces (Task)
+├─ firebase.ts # Firebase configuration (Auth + Firestore)
+├─ package.json # Project dependencies
+└─ README.md # Project documentation
+
+Testing Credentials
+
+For evaluation, you can use the following demo account:
+
+Email: yvette@gmail.com
+
+Password: 123456789
