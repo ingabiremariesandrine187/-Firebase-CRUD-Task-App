@@ -22,7 +22,7 @@ export default function LoginPage() {
       if (userCredential.user) {
         // Login successful → go to dashboard
         alert("Login successful!");
-        router.push("/"); 
+        router.push("/dashboard"); 
       }
     } catch (error: any) {
       // Handle errors
